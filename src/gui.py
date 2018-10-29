@@ -72,6 +72,17 @@ class Gui:
         time.sleep(0.3)
         self.displayHTML.tkraise(self.progFrame)
 
+    def clear(self):
+        self.cemis_path = ""
+        self.records_dir = ""
+        self.track_path = ""
+        self.lblSel1.config(text="None selected")
+        self.lblSel2.config(text="None selected")
+        self.lblSel3.config(text="None selected")
+        self.entryName.delete(0, END)
+        self.log = ""
+        self.displayHTML.parse("")
+        self.displayHTML.reset()
 
     # ---------------------- Reactivity ---------------------------- #
 
@@ -120,8 +131,11 @@ class Gui:
             tkMessageBox.showinfo("Alert!", "Please enter the LST.")
             return
 
+        # start process thread
         PROCESS_THREAD = Thread(target=self.parent.process, args=(name, self.cemis_path, self.records_dir, self.track_path))
         PROCESS_THREAD.start()
+
+        self.clear()
 
 # --------------------- GUI instantiation ----------------------- #
 

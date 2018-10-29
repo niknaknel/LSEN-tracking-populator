@@ -3,3 +3,5 @@ pandas==0.21.0
 et-xmlfile==1.0.1
 jdcal==1.4
 openpyxl==2.5.9
+tkinterhtml==0.7
+ttkthemes==2.1.0

@@ -14,7 +14,7 @@ class TrackingSheet:
 
     def export(self, learners):
         # sort alphabetically
-        learners.sort(key=lambda x: (x.grade, x.surname))
+        learners.sort(key=lambda x: (x.grade, x.clss, x.surname))
 
         # open workbook
         srcfile = openpyxl.load_workbook(self.filename, read_only=False, keep_vba=True)

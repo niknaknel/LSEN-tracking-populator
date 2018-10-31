@@ -4,10 +4,11 @@ from .constants import *
 
 class Learner:
 
-    def __init__(self, name, surname, grade, cemis, lolt, school_name):
+    def __init__(self, name, surname, grade, clss, cemis, lolt, school_name):
         self.name = name
         self.surname = surname
         self.grade = grade
+        self.clss= clss
         self.cemis = cemis
         self.lolt = lolt
         self.school_name = school_name
@@ -59,10 +60,10 @@ class Learner:
             self.code_maths["t4"] = t4
 
     def get_dict(self):
-        data = {COL_SURNAME : self.surname,
-                COL_NAME: self.name,
-                COL_GRADE: self.grade,
-                COL_CEMIS: self.cemis,
+        data = {COL_SURNAME: self.surname,
+                COL_NAME : self.name,
+                COL_GRADE : self.grade,
+                COL_CEMIS : self.cemis,
                 COL_LOLT : self.lolt,
                 COL_LOLT_T1 : self.code_lolt['t1'],
                 COL_LOLT_T2 : self.code_lolt['t2'],
@@ -78,8 +79,8 @@ class Learner:
 
 
     def __unicode__(self):
-        return u'{0} {1}, Gr{2}, {3}, {4}, {5}'.format(self.surname, self.name, self.grade,
-                                                      self.lolt, self.cemis, self.school_name)
+        return u'{0} {1}, Gr{2} {3} {4}, {5}, {6}'.format(self.surname, self.name, self.grade,
+                                                          self.lolt[0], self.clss, self.cemis, self.school_name)
 
     def __str__(self):
         return unicode(self).encode('utf-8')

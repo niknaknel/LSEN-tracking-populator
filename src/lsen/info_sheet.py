@@ -26,13 +26,17 @@ class InfoSheet:
     def create_learner(self, args):
         surname = args[0]
         name = args[1]
-        gr = self.parse_class_group(args[2])
+        gr, clss = self.parse_class_group(args[2])
         cemis = args[3]
         lolt = args[4]
-        return Learner(name, surname, gr, cemis, lolt, self.school_name)
+        return Learner(name, surname, gr, clss, cemis, lolt, self.school_name)
 
     @classmethod
     def parse_class_group(cls, class_group):
         gr = (class_group.strip()).split(' ')[0]
         grade = gr[2]
-        return grade
+
+        cl = (class_group.strip()).split(' ')[1]
+        clss = cl[1]
+
+        return grade, clss
